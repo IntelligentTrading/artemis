@@ -2,7 +2,7 @@ import atexit
 import inspect
 import logging
 import os
-import pickle
+import dill as pickle
 import shutil
 import signal
 import sys
