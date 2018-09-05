@@ -1,7 +1,6 @@
 import os
-from artemis.fileman.config_files import get_config_path, get_config_value
-
-_DEFAULT_ARTEMIS_CONFIG = """
+from artemis.fileman.config_files import get_config_path, get_config_value, get_home_dir
+_DEFAULT_ARTEMIS_CONFIG = f"""
 [plotting]
 backend = matplotlib
 update_period = 0.5
@@ -9,7 +8,10 @@ mode = safe
 default_fig_size = (12, 8)
 
 [experiments]
-experiment_directory = ~/.artemis/experiments 
+experiment_directory = {get_home_dir()}{os.path.sep}artemis
+
+[fileman]
+data_dir = {get_home_dir()}{os.path.sep}artemis{os.path.sep}experiments
 """
 
 _CONFIG_FILE_NAME = '.artemisrc'

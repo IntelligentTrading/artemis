@@ -79,14 +79,14 @@ class ChildProcess(object):
     def get_extended_command(self,command):
         return "echo $$ ; exec %s"%command
 
-    def deconstruct(self, signum=signal.SIGKILL, system_signal=False):
+    def deconstruct(self, signum=signal.SIGTERM, system_signal=False):
         '''
         This completely and safely deconstructs a remote connection. It might also be called at program shutdown, if take_care_of_deconstruct is set to True
         kills itself if alive, then closes remote connection if applicable
         :return:
         '''
         if self.cp_started:
-            if signum == signal.SIGKILL:
+            if signum == signal.SIGTERM:
                 self.kill(signum=signum)
             elif signum == signal.SIGINT:
                 self.kill(signum=signum)

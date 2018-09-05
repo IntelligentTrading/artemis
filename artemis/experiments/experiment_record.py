@@ -395,7 +395,7 @@ class ExperimentRecord(object):
         if status is ExpStatusOptions.STARTED:
             pid = self.info.get_field(ExpInfoFields.PID)
             try:
-                os.kill(pid, signal.SIGKILL)
+                os.kill(pid, signal.SIGTERM)
             except OSError:
                 print('Process {} appears to be already dead.  '.format(pid))
             self.info.set_field(ExpInfoFields.STATUS, ExpStatusOptions.STOPPED)

@@ -140,7 +140,7 @@ class Nanny(object):
         for id,cp in self.managed_child_processes.items():
             if cp.is_alive():
                 print(("Child Process %s at %s did not terminate. Force quitting now." %(cp.get_name(),cp.get_ip())))
-                cp.deconstruct(signal.SIGKILL)
+                cp.deconstruct(signal.SIGTERM)
 
 
     def deconstruct(self):

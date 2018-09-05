@@ -85,7 +85,7 @@ def test_kill_process_strongly():
         cp.kill()
         time.sleep(1)
         assert cp.is_alive(), "Process terminated too soon. Check remote_test_functions.py implementation!"
-        cp.kill(signal.SIGKILL)
+        cp.kill(signal.SIGTERM)
         time.sleep(1)
         assert not cp.is_alive(), "Process is still alive, killing it did not work"
 
